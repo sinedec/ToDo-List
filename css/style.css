@@ -1,0 +1,58 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body{
+  padding-top: 70px;
+  margin-bottom: 30px;
+  background-image: url(../img/bg.png);
+}
+.navbar{
+  background-color: #F1B81E;
+  border-bottom: 1px solid #ABABAB;
+}
+.icon-bar{
+  background-color: #FFF;
+}
+
+.navbar-brand{
+  color: #FFF !important;
+}
+.nav a{
+  color: #FFF !important;
+}
+.nav a:hover{
+  color: #F1B81E !important;
+}
+.add-task {
+  margin-bottom: 10px;
+}
+.list-group input{
+  margin:0;
+}
+.list-group-item {
+  cursor: pointer;
+}
+.margin-auto {
+  margin: 0 auto;
+}
+.icon {
+float: right;
+padding: 3px 10px;
+}
+.task-text {
+  padding: 10px 5px;
+}
+.footer {
+  position: absolute;
+  height: 30px;
+  width: 100%;
+  bottom: 0;
+  color: #FFF;
+}
+.footer p{
+  text-align: center;
+}
+.footer a{   
+  color: #FFF;
+}

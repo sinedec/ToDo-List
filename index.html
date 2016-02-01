@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Site-description">
+	<meta name="keywords" content="Site-keywords">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- 	<link rel="stylesheet" href="css/style.css">
+	<link rel="shortcut icon" href="http://..." type="image/x-icon"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"> -->
+  <link rel="stylesheet" href="css/style.css">
+	<title>ToDo list</title>
+
+
+	<!-- [if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+<body ng-app="app" ng-controller="MainCtrl">
+   <nav class="navbar navbar-fixed-top ">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">ToDoList</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav menu">
+          <li><a href ng-click="ckeckAll()">Ckeck All</a></li>
+          <li><a href ng-click="deleteCkecked()">Delete all ckecked</a></li>
+          <li><a href ng-click="deleteAll()">Delete all tasks</a></li>
+        </ul>
+      </div>
+    </div> <!-- .container-fluid -->
+  </nav> <!-- /.navbar -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="input-group add-task">
+          <input type="text" class="form-control" ng-model="newtask.name" placeholder="Enter your new task here..." ng-keyup="$event.keyCode == 13 && add(newtask)">
+          <span class="input-group-btn">
+            <button class="btn btn-default" ng-click="add(newtask)">Add Task</button>
+          </span>
+        </div><!-- /input-group -->
+        <div class="list-group">
+          <div class="list-group-item" ng-repeat="task in tasks" ng-class="{'list-group-item-success':task.done}">
+            <div ng-hide="task.editable">
+              <span ng-click='toggle(task)' class="task-text">{{task.name}}</span>
+              <span class="glyphicon icon" ng-class="{'glyphicon-edit':!task.done,'glyphicon-ok':task.done}" ng-click="write(task)"></span>
+            </div>
+            <div class="input-group" ng-show="task.editable" >
+              <input type="text" class="form-control" ng-model="task.name" value="{{task.name}}" ng-keyup="$event.keyCode == 13 && write(task)"/>
+              <span class="input-group-addon" ng-click="write(task)"> <span class="glyphicon glyphicon-ok"></span></span>
+            </div>
+          </div><!--  /.list-group-item -->
+        </div> <!-- /.list-group -->
+
+      </div> <!-- /.col-md-8 -->
+    </div> <!-- /.row -->
+  </div><!--  /.container -->
+
+  <div class="footer">     
+    <p>Created by <a href="http://www.facebook.com/denismagician">Denis Vasiliev</a></p>  
+  </div> <!-- /.footer -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script>
+  </script>
+</body>
+</html>
