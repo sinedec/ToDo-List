@@ -71,21 +71,35 @@
 				}
 			}
 		};
-		$scope.allCkecked = false;
+		$scope.allCkecked = function() {
+			var checked = 0;
+			var unchecked = 0;
+			for (var i=0; i<$scope.tasks.length; i++){
+				if($scope.tasks[i].done === true){
+					checked++;
+				} else {
+					unchecked++;
+				}
+
+			}
+			if(checked == $scope.tasks.length){
+				return true;
+			} else {
+				return false;
+			}
+		};
 		$scope.ckeckAll = function(){
-			if($scope.allCkecked === false){
+			if($scope.allCkecked() == false){
 				for(var i=0; i<$scope.tasks.length; i++){
 					if($scope.tasks[i].done === false)
 					{
-						$scope.tasks[i].done = true;
+						$scope.tasks[i].done = !$scope.tasks[i].done;
 					}
 				}
-				$scope.allCkecked = true;
 			} else {
 				for(var i=0; i<$scope.tasks.length; i++){
-					$scope.tasks[i].done = false;
+					$scope.tasks[i].done = !$scope.tasks[i].done;
 				}
-				$scope.allCkecked = false;
 			}
 		};
 		$scope.deleteAll = function(){
