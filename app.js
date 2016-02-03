@@ -28,8 +28,6 @@
 				editable: true
 			}
 		];
-		$scope.eEditable= -1; //-1 by default. It doesn't match any $index from ng-repeat
-		$scope.tagStart = "<div>Wow1</div>";
 		$scope.add = function(newtask) {
 			if (newtask.name != ""){
 				var task = {};
@@ -39,9 +37,7 @@
 				$scope.tasks.push(task);
 				newtask.name = "";
 			}
-
 		};
-
 		$scope.delete = function(task) {
 			for (var i=0; i < $scope.tasks.length; i++) {
 				if($scope.tasks[i].name === task.name) {
@@ -66,8 +62,7 @@
 					} else {
 						$scope.tasks.splice(i,1);
 						break;
-					}
-					
+					}	
 				}
 			}
 		};
@@ -80,7 +75,6 @@
 				} else {
 					unchecked++;
 				}
-
 			}
 			if(checked == $scope.tasks.length){
 				return true;
@@ -106,13 +100,9 @@
 			$scope.tasks.splice(0,$scope.tasks.length);
 		};
 		$scope.deleteCkecked = function(){
-
 			for(var i = $scope.tasks.length-1; i>-1; i--){
 				if ($scope.tasks[i].done === true) $scope.tasks.splice(i, 1);
 			}
 		};
-
 	}]);
-	
-
 })();
